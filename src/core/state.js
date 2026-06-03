@@ -30,7 +30,10 @@ export async function loadSaved(onUpdate) {
     const raw = localStorage.getItem(STORAGE);
     if (raw) {
       const p = JSON.parse(raw);
-      if (p.DATA) state.DATA = p.DATA;
+      if (p.DATA) {
+        if (p.DATA.en) state.DATA.en = { ...DEFAULTS.en, ...p.DATA.en };
+        if (p.DATA.nl) state.DATA.nl = { ...DEFAULTS.nl, ...p.DATA.nl };
+      }
       if (p.LINKS) state.LINKS = Object.assign({}, LINK_DEFAULTS, p.LINKS);
       if (p.PHOTO) state.PHOTO = p.PHOTO;
     }
@@ -45,7 +48,10 @@ export async function loadSaved(onUpdate) {
 
     if (!error && rows && rows.length > 0) {
       const row = rows[0];
-      if (row.data) state.DATA = row.data;
+      if (row.data) {
+        if (row.data.en) state.DATA.en = { ...DEFAULTS.en, ...row.data.en };
+        if (row.data.nl) state.DATA.nl = { ...DEFAULTS.nl, ...row.data.nl };
+      }
       if (row.links) state.LINKS = Object.assign({}, LINK_DEFAULTS, row.links);
       if (row.photo) state.PHOTO = row.photo;
       
