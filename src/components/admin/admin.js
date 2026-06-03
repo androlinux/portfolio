@@ -19,7 +19,7 @@ const fieldGroups = [
   { title: 'Profile',           keys: ['profileNum','profileTitle','profileText'] },
   { title: 'Projects',          keys: ['projectsNum','projectsTitle','p1tag','p1title','p1text','p2tag','p2title','p2text','p3tag','p3title','p3text'] },
   { title: 'Experience',        keys: ['expNum','expTitle','e1when','e1title','e1l1','e1l2','e1l3','e1l4','e2when','e2title','e2l1','e2l2','e2l3','e3when','e3title','e3l1','e3l2','e3l3'] },
-  { title: 'Skills & languages',keys: ['skillsNum','skillsTitle','skillsSub','s1','s2','s3','s4','s5','s6','s7','s8','langSub','l1n','l1v','l2n','l2v','l3n','l3v','l4n','l4v','l5n','l5v'] },
+  { title: 'Skills & languages',keys: ['skillsNum','skillsTitle','skillsSub','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','langSub','l1n','l1v','l2n','l2v','l3n','l3v','l4n','l4v','l5n','l5v'] },
   { title: 'Contact',           keys: ['contactNum','contactTitle','contactSub','phoneLabel','phoneText','emailLabel','emailText','footer'] },
   { title: 'Legal (footer)',    keys: ['footPrivacy','footImprint','footCookies','cookieText','cookieAccept','cookieDecline'] },
 ];
