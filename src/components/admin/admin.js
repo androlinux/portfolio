@@ -6,9 +6,7 @@ import { applyPhoto, processPhotoFile } from '../hero/hero.js';
 import { DEFAULT_PHOTO } from '../../data/photo.js';
 import { supabase } from '../../core/supabase.js';
 
-// Credentials
-const AL_USER = 'admin123';
-const AL_PASS = 'Muratadmin123';
+// Credentials key
 const AL_KEY  = 'admin_auth';
 
 function isAuthed() {
