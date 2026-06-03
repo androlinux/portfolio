@@ -1,0 +1,5 @@
+/* Footer: copyright + legal links (privacy / imprint / cookie settings). */
+footer{text-align:center;padding:40px 7vw;color:var(--grey);font-size:.85rem;border-top:1px solid var(--line);position:relative;z-index:2}
+footer .fbtns{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+footer .fbtns button{background:none;border:none;color:var(--grey);font:inherit;font-size:.82rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+footer .fbtns button:hover{color:var(--orange)}

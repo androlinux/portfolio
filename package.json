@@ -1,0 +1,18 @@
+{
+  "name": "myrat-portfolio",
+  "version": "1.0.0",
+  "description": "Myrat Daniyarov — bilingual portfolio (modular, component-based)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.0.16"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.2"
+  }
+}
