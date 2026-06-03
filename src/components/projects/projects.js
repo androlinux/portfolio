@@ -13,6 +13,8 @@ export function applyLinks() {
   if (tg) tg.setAttribute('href', L.__tg);
   const linkedin = document.getElementById('linkedinLink');
   if (linkedin) linkedin.setAttribute('href', L.__linkedin || 'https://linkedin.com/in/');
+  const github = document.getElementById('githubLink');
+  if (github) github.setAttribute('href', L.__github || 'https://github.com/');
 
   [['proj1', '__proj1'], ['proj2', '__proj2'], ['proj3', '__proj3']].forEach((p) => {
     const el = document.getElementById(p[0]);
