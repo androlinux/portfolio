@@ -4,12 +4,12 @@
 .contact .sub{color:var(--grey);font-size:1rem;margin-bottom:42px;font-weight:300}
 .contact-links{display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto 44px}
 .c-link{display:flex;align-items:center;gap:16px;background:var(--charcoal);border:1px solid var(--line);padding:18px 26px;border-radius:16px;text-decoration:none;color:var(--white);font-weight:500;transition:all .35s cubic-bezier(.16,1,.3,1)}
-.c-link:hover{border-color:var(--orange);transform:translateX(6px);background:#1a1a1a}
-.c-link .ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:rgba(255,106,0,.12);display:flex;align-items:center;justify-content:center;color:var(--orange)}
+.c-link:hover{border-color:var(--orange);transform:translateX(6px);background:#f0f7ff}
+.c-link .ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:rgba(14,165,233,0.08);display:flex;align-items:center;justify-content:center;color:var(--orange)}
 .c-link .ico svg{width:22px;height:22px}
 .c-link .meta{text-align:left}
 .c-link .meta small{display:block;color:var(--grey);font-size:.75rem;font-weight:400}
 .socials{display:flex;gap:16px;justify-content:center}
 .social{width:54px;height:54px;border-radius:14px;background:var(--charcoal);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--white);transition:all .35s;text-decoration:none}
 .social svg{width:24px;height:24px}
-.social:hover{background:var(--orange);color:#000;transform:translateY(-4px) rotate(-6deg)}
+.social:hover{background:var(--orange);color:#fff;transform:translateY(-4px) rotate(-6deg)}
