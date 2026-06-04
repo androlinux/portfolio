@@ -7,7 +7,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);overflow-x:clip;-webkit-text-size-adjust:100%}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{font-family:'Manrope',sans-serif;background:var(--black);color:var(--white);overflow-x:clip;line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;width:100%;max-width:100%}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:clip;line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;width:100%;max-width:100%}
 body.locked{overflow:hidden}
 ::selection{background:rgba(56, 189, 248, 0.25);color:#0284c7}
 a{color:inherit}
@@ -21,8 +21,8 @@ body::after{content:"";position:fixed;bottom:-15%;right:-10%;width:500px;height:
 section{position:relative;z-index:2;padding:70px 7vw;scroll-margin-top:var(--nav-h);contain:layout style}
 #projects,#experience,#skills,#contact{content-visibility:auto;contain-intrinsic-size:auto 400px}
 .sec-head{margin-bottom:38px}
-.sec-head .num{color:var(--orange);font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:2px}
-.sec-head h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.9rem);letter-spacing:-1px;margin-top:8px}
+.sec-head .num{color:var(--orange);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:1px}
+.sec-head h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.7rem,4vw,2.9rem);letter-spacing:-1px;margin-top:8px}
 
 /* scroll progress bar */
 .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-soft));z-index:120;transition:width .1s linear}

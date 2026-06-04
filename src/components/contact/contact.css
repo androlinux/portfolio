@@ -1,7 +1,7 @@
 /* Contact: clickable phone/email cards + Instagram/Telegram social buttons. */
 .contact{text-align:center}
-.contact h2{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:18px}
-.contact .sub{color:var(--grey);font-size:1rem;margin-bottom:42px;font-weight:300}
+.contact h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:18px}
+.contact .sub{color:var(--grey);font-size:1rem;margin-bottom:42px;font-weight:400}
 .contact-links{display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto 44px}
 .c-link{display:flex;align-items:center;gap:16px;background:var(--charcoal);border:1px solid var(--line);padding:18px 26px;border-radius:16px;text-decoration:none;color:var(--white);font-weight:500;transition:all .35s cubic-bezier(.16,1,.3,1)}
 .c-link:hover{border-color:var(--orange);transform:translateX(6px);background:#f0f7ff}
