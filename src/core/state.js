@@ -3,7 +3,14 @@
 import { DEFAULTS } from '../data/translations.js';
 import { LINK_DEFAULTS } from '../data/links.js';
 import { DEFAULT_PHOTO } from '../data/photo.js';
-import { supabase } from './supabase.js';
+
+let supabaseInstance = null;
+async function getSupabase() {
+  if (!supabaseInstance) {
+    supabaseInstance = (await import('./supabase.js')).supabase;
+  }
+  return supabaseInstance;
+}
 
 export const STORAGE = 'myrat_portfolio_v3';
 export const CONSENT = 'myrat_cookie_consent';
@@ -39,34 +46,45 @@ export async function loadSaved(onUpdate) {
     }
   } catch (e) {}
 
-  // 2. Async load from Supabase!
+  // 2. Async load from Supabase via Native Fetch REST API!
   try {
-    const { data: rows, error } = await supabase
-      .from('portfolio_state')
-      .select('*')
-      .eq('id', 1);
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    const response = await fetch(`${supabaseUrl}/rest/v1/portfolio_state?id=eq.1&select=*`, {
+      method: 'GET',
+      headers: {
+        'apikey': supabaseAnonKey,
+        'Authorization': `Bearer ${supabaseAnonKey}`,
+        'Content-Type': 'application/json'
+      }
+    });
 
-    if (!error && rows && rows.length > 0) {
-      const row = rows[0];
-      if (row.data) {
-        if (row.data.en) state.DATA.en = { ...DEFAULTS.en, ...row.data.en };
-        if (row.data.nl) state.DATA.nl = { ...DEFAULTS.nl, ...row.data.nl };
-      }
-      if (row.links) state.LINKS = Object.assign({}, LINK_DEFAULTS, row.links);
-      if (row.photo) state.PHOTO = row.photo;
-      
-      // Update local storage cache (if consent given) to speed up next load
-      if (saveAllowed()) {
-        try {
-          const payload = { DATA: state.DATA, LINKS: state.LINKS };
-          if (state.PHOTO !== DEFAULT_PHOTO) payload.PHOTO = state.PHOTO;
-          localStorage.setItem(STORAGE, JSON.stringify(payload));
-        } catch (e) {}
-      }
+    if (response.ok) {
+      const rows = await response.json();
+      if (rows && rows.length > 0) {
+        const row = rows[0];
+        if (row.data) {
+          if (row.data.en) state.DATA.en = { ...DEFAULTS.en, ...row.data.en };
+          if (row.data.nl) state.DATA.nl = { ...DEFAULTS.nl, ...row.data.nl };
+        }
+        if (row.links) state.LINKS = Object.assign({}, LINK_DEFAULTS, row.links);
+        if (row.photo) state.PHOTO = row.photo;
+        
+        // Update local storage cache (if consent given) to speed up next load
+        if (saveAllowed()) {
+          try {
+            const payload = { DATA: state.DATA, LINKS: state.LINKS };
+            if (state.PHOTO !== DEFAULT_PHOTO) payload.PHOTO = state.PHOTO;
+            localStorage.setItem(STORAGE, JSON.stringify(payload));
+          } catch (e) {}
+        }
 
-      if (typeof onUpdate === 'function') {
-        onUpdate();
+        if (typeof onUpdate === 'function') {
+          onUpdate();
+        }
       }
+    } else {
+      console.error('Failed to load from Supabase REST API:', response.statusText);
     }
   } catch (err) {
     console.error('Failed to load from Supabase:', err);
@@ -86,6 +104,7 @@ export async function persist() {
 
   // 2. Save to Supabase!
   try {
+    const s = await getSupabase();
     const payload = {
       id: 1,
       data: state.DATA,
@@ -93,7 +112,7 @@ export async function persist() {
       photo: state.PHOTO
     };
 
-    const { error } = await supabase
+    const { error } = await s
       .from('portfolio_state')
       .upsert(payload, { onConflict: 'id' });
 

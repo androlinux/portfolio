@@ -4,7 +4,10 @@ import { renderLang } from '../../core/i18n.js';
 import { applyLinks } from '../projects/projects.js';
 import { applyPhoto, processPhotoFile } from '../hero/hero.js';
 import { DEFAULT_PHOTO } from '../../data/photo.js';
-import { supabase } from '../../core/supabase.js';
+
+async function getSupabase() {
+  return (await import('../../core/supabase.js')).supabase;
+}
 
 // Credentials key
 const AL_KEY  = 'admin_auth';
@@ -107,7 +110,8 @@ export function initAdmin() {
     btn.disabled = true;
     
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const s = await getSupabase();
+      const { data, error } = await s.auth.signInWithPassword({
         email: u,
         password: p,
       });
