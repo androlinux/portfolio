@@ -1,0 +1,30 @@
+# Myrat Daniyarov - Professional Portfolio
+
+## Introduction
+Myrat Daniyarov is a Project Manager Assistant and Digital Creator based in Amsterdam, Netherlands. He specializes in e-commerce, web development, and AI tools, offering a unique blend of technical expertise and creative problem-solving.
+
+## Key Projects
+- **WeddingPlans.site**: An elegant event management platform designed to simplify wedding planning.
+- **Nothing2.store**: An innovative e-commerce application focused on seamless user experience, fast load times, and secure transactions.
+- **Language Learning App**: An interactive application leveraging modern frontend technologies to provide engaging educational content.
+
+## Professional Experience
+Myrat has extensive experience serving as a Project Manager Assistant, bridging the gap between technical teams and business stakeholders. His responsibilities include:
+- Coordinating cross-functional teams
+- Streamlining agile workflows
+- Gathering requirements and estimating timelines
+- Content strategy, UI/UX design, and AI-driven tool implementation
+
+## Skills and Expertise
+- **Web Development**: React, Next.js, Vite, HTML5, CSS3, JavaScript.
+- **Digital Marketing & SEO**: Search Engine Optimization, content strategy.
+- **E-commerce**: Shopify, WooCommerce.
+- **Languages**: Turkmen (Native), Russian (Fluent), English (B1/B2), Dutch (A2/B1), Turkish (B1).
+
+## Contact Information
+- **Email**: Daniyarow16@gmail.com
+- **Phone**: +31 6 44154126
+- **Location**: Haarlem, Netherlands
+- **LinkedIn**: https://www.linkedin.com/in/myrataionline
+- **GitHub**: https://github.com/androlinux
+- **Website**: https://myratdev.online/
