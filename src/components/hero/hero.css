@@ -20,3 +20,19 @@
   .hero-actions{justify-content:center}
   .eyebrow{margin:0 auto 18px}
 }
+
+/* Fast CSS-only animations for FCP/LCP optimization (no JS wait) */
+@keyframes heroSlideLeft {
+  from { transform: translate3d(0,25px,0); opacity: 0.01; }
+  to { transform: translate3d(0,0,0); opacity: 1; }
+}
+@keyframes heroSlideRight {
+  from { transform: translate3d(0,25px,0); opacity: 0.01; }
+  to { transform: translate3d(0,0,0); opacity: 1; }
+}
+.hero-anim-left {
+  animation: heroSlideLeft 0.5s ease-out forwards;
+}
+.hero-anim-right {
+  animation: heroSlideRight 0.5s ease-out forwards;
+}
