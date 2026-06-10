@@ -63,10 +63,20 @@ function boot() {
   initReveal();
   initScrollEffects();
 
-  // decide initial language (saved pref, else Dutch browsers default to NL)
+  // decide initial language (URL param, then saved pref, else Dutch browsers default to NL)
   let lang = 'en';
-  try { const saved = localStorage.getItem('myrat_lang'); if (saved) lang = saved; } catch (e) {}
-  if (!localStorage.getItem('myrat_lang') && (navigator.language || '').toLowerCase().startsWith('nl')) lang = 'nl';
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam === 'en' || langParam === 'nl') {
+      lang = langParam;
+      localStorage.setItem('myrat_lang', lang);
+    } else {
+      const saved = localStorage.getItem('myrat_lang'); 
+      if (saved) lang = saved;
+      else if ((navigator.language || '').toLowerCase().startsWith('nl')) lang = 'nl';
+    }
+  } catch (e) {}
 
   state.lang = 'en';
   renderLang('en', false);
