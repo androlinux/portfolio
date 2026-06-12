@@ -16,26 +16,19 @@ export function applyLinks() {
   const github = document.getElementById('githubLink');
   if (github) github.setAttribute('href', L.__github || 'https://github.com/');
 
-  [['proj1', '__proj1'], ['proj2', '__proj2'], ['proj3', '__proj3']].forEach((p) => {
+  [['proj1-live', '__proj1'], ['proj2-live', '__proj2'], ['proj3-live', '__proj3']].forEach((p) => {
     const el = document.getElementById(p[0]);
     if (!el) return;
     const url = (L[p[1]] || '').trim();
-    const go = el.querySelector('.card-go');
-    if (!el.dataset.bound) {
-      el.dataset.bound = '1';
-      el.addEventListener('click', function (e) { if (this.getAttribute('href') === '#') e.preventDefault(); });
-    }
-    if (!url || url === '#') {
+    if (!url || url === '#' || url === '') {
       el.setAttribute('href', '#');
       el.removeAttribute('target');
-      el.style.cursor = 'default';
-      if (go) go.style.display = 'none';
+      el.style.display = 'none';
     } else {
       el.setAttribute('href', url);
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener noreferrer');
-      el.style.cursor = 'pointer';
-      if (go) go.style.display = 'inline-flex';
+      el.style.display = 'inline-flex';
     }
   });
 }

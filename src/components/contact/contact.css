@@ -1,15 +1,51 @@
-/* Contact: clickable phone/email cards + Instagram/Telegram social buttons. */
+/* Contact: phone/email simplified row + Instagram/Telegram social buttons. */
 .contact{text-align:center}
 .contact h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:18px}
-.contact .sub{color:var(--grey);font-size:1rem;margin-bottom:42px;font-weight:400}
-.contact-links{display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto 44px}
-.c-link{display:flex;align-items:center;gap:16px;background:var(--charcoal);border:1px solid var(--line);padding:18px 26px;border-radius:16px;text-decoration:none;color:var(--white);font-weight:500;transition:all .35s cubic-bezier(.16,1,.3,1)}
-.c-link:hover{border-color:var(--orange);transform:translateX(6px);background:#f0f7ff}
-.c-link .ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:rgba(14,165,233,0.08);display:flex;align-items:center;justify-content:center;color:var(--orange)}
-.c-link .ico svg{width:22px;height:22px}
-.c-link .meta{text-align:left}
-.c-link .meta small{display:block;color:var(--grey);font-size:.75rem;font-weight:400}
+.contact .sub{color:var(--grey);font-size:1rem;margin-bottom:32px;font-weight:400}
+
+.contact-simple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 38px;
+}
+.contact-simple-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-simple-link:hover {
+  color: var(--orange);
+}
+.contact-simple-link svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  color: var(--orange);
+  vertical-align: middle;
+}
+.contact-simple .separator {
+  color: var(--line);
+  font-size: 1.1rem;
+}
+
 .socials{display:flex;gap:16px;justify-content:center}
 .social{width:54px;height:54px;border-radius:14px;background:var(--charcoal);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--white);transition:all .35s;text-decoration:none}
 .social svg{width:24px;height:24px}
 .social:hover{background:var(--orange);color:#fff;transform:translateY(-4px) rotate(-6deg)}
+
+@media (max-width: 480px) {
+  .contact-simple {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contact-simple .separator {
+    display: none;
+  }
+}

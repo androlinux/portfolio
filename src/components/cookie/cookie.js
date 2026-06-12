@@ -44,7 +44,13 @@ export function initModals(closeAdmin) {
   const modalBody = document.getElementById('modalBody');
 
   function openModal(type) {
-    modalBody.innerHTML = LEGAL[state.lang][type];
+    if (state.DATA[state.lang] && state.DATA[state.lang][type] !== undefined) {
+      modalBody.innerHTML = state.DATA[state.lang][type];
+    } else if (LEGAL[state.lang] && LEGAL[state.lang][type] !== undefined) {
+      modalBody.innerHTML = LEGAL[state.lang][type];
+    } else {
+      modalBody.innerHTML = '';
+    }
     const ph = 'tel:' + state.LINKS.__phone.replace(/\s/g, '');
     const em = 'mailto:' + state.LINKS.__email;
     ['lgEmail', 'lgEmail2', 'lgEmail3'].forEach((id) => {
