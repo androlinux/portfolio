@@ -1,2 +1,2 @@
 /* Profile: single intro paragraph. */
-.profile p{font-size:clamp(.98rem,1.6vw,1.18rem);color:#334155;max-width:850px;font-weight:400;line-height:1.75}
+.profile p{font-size:clamp(.98rem,1.6vw,1.18rem);color:var(--white);max-width:850px;font-weight:400;line-height:1.75;white-space:pre-line}
