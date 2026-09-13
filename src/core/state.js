@@ -12,7 +12,7 @@ async function getSupabase() {
   return supabaseInstance;
 }
 
-export const STORAGE = 'myrat_portfolio_v3';
+export const STORAGE = 'myrat_portfolio_v4';
 export const CONSENT = 'myrat_cookie_consent';
 
 // mutable state — kept on a single object so imports stay live

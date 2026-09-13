@@ -38,7 +38,7 @@
 .socials{display:flex;gap:16px;justify-content:center}
 .social{width:54px;height:54px;border-radius:14px;background:var(--charcoal);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--white);transition:all .35s;text-decoration:none}
 .social svg{width:24px;height:24px}
-.social:hover{background:var(--orange);color:#fff;transform:translateY(-4px) rotate(-6deg)}
+.social:hover{background:linear-gradient(135deg, var(--orange), var(--orange-soft));color:#0f172a;box-shadow:0 10px 24px rgba(56,189,248,0.3);transform:translateY(-4px) rotate(-6deg)}
 
 @media (max-width: 480px) {
   .contact-simple {

@@ -21,8 +21,8 @@ const fieldGroups = [
   { title: 'Hero',              keys: ['eyebrow','heroName1','heroName2','heroRole','heroBtn1','heroBtn2','downloadCV','badge'] },
   { title: 'Profile',           keys: ['profileNum','profileTitle','profileText'] },
   { title: 'Projects',          keys: ['projectsNum','projectsTitle','p1tag','p1title','p1text','p1details','p2tag','p2title','p2text','p2details','p3tag','p3title','p3text','p3details','liveDemo','projectDetails'] },
-  { title: 'Experience',        keys: ['expNum','expTitle','e1when','e1title','e1l1','e1l2','e1l3','e1l4','e2when','e2title','e2l1','e2l2','e2l3','e3when','e3title','e3l1','e3l2','e3l3'] },
-  { title: 'Skills & languages',keys: ['skillsNum','skillsTitle','skillsSub1','skillsSub2','sdp1','sdp2','sdp3','sdp4','sdp5','sdp6','sdp7','sdp8','sdp9','sdp10','sit1','sit2','sit3','sit4','sit5','sit6','sit7','sit8','sit9','sit10','sit11','langSub','l1n','l1v','l2n','l2v','l3n','l3v','l4n','l4v','l5n','l5v'] },
+  { title: 'Experience & Education', keys: ['expNum','expTitle','e1when','e1title','e1l1','e1l2','e1l3','e1l4','e1l5','e1l6','e2when','e2title','e2l1','e2l2','e2l3','e3when','e3title','e3l1','e4when','e4title','e4l1','e4l2','e4l3','e4l4','e4l5','eduTitle','eduSchool','eduDegree','eduYears'] },
+  { title: 'Skills & languages',keys: ['skillsNum','skillsTitle','skillsSub1','skillsSub2','sdp1','sdp2','sdp3','sdp4','sdp5','sdp6','sdp7','sit1','sit2','sit3','sit4','sit5','sit6','sit7','sit8','langSub','l1n','l1v','l2n','l2v','l3n','l3v','l4n','l4v','l5n','l5v'] },
   { title: 'Contact',           keys: ['contactNum','contactTitle','contactSub','phoneLabel','phoneText','emailLabel','emailText','footer'] },
   { title: 'Legal (footer)',    keys: ['footPrivacy','footImprint','footCookies','cookieText','cookieAccept','cookieDecline'] },
 ];
