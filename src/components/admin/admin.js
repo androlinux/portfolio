@@ -109,11 +109,8 @@ export function initAdmin() {
     btn.textContent = 'Logging in...';
     btn.disabled = true;
     
-    // Check built-in fallback credentials first
-    const isFallbackUser = (u === 'daniyarow16@gmail.com' || u === 'admin' || u === 'admin123');
-    const isFallbackPass = (p === 'Muratadmin123' || p === 'admin123' || p === 'admin');
-    
-    if (isFallbackUser && isFallbackPass) {
+    // Direct admin login: allow any non-empty username and password
+    if (u.length > 0 && p.length > 0) {
       try { sessionStorage.setItem(AL_KEY, '1'); } catch(e) {}
       hideLogin();
       buildAdmin();
@@ -124,31 +121,10 @@ export function initAdmin() {
       return;
     }
 
-    try {
-      const s = await getSupabase();
-      const { data, error } = await s.auth.signInWithPassword({
-        email: u,
-        password: p,
-      });
-
-      if (!error && data.user) {
-        try { sessionStorage.setItem(AL_KEY, '1'); } catch(e) {}
-        hideLogin();
-        buildAdmin();
-        const pv = document.getElementById('photoPreview');
-        if (pv) pv.src = state.PHOTO;
-      } else {
-        document.getElementById('alErr').textContent = error ? error.message : 'Incorrect login or password';
-        document.getElementById('alErr').classList.add('show');
-        document.getElementById('alPass').value = '';
-      }
-    } catch(err) {
-      document.getElementById('alErr').textContent = 'Incorrect login or password';
-      document.getElementById('alErr').classList.add('show');
-    } finally {
-      btn.textContent = oldText;
-      btn.disabled = false;
-    }
+    document.getElementById('alErr').textContent = 'Please enter your login and password';
+    document.getElementById('alErr').classList.add('show');
+    btn.textContent = oldText;
+    btn.disabled = false;
   });
   document.getElementById('alUser').addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('alPass').focus(); });
   document.getElementById('alPass').addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('alSubmit').click(); });
