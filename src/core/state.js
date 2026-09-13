@@ -93,16 +93,17 @@ export async function loadSaved(onUpdate) {
 
 // Persist current state to local storage and Supabase database. Returns true on success.
 export async function persist() {
-  // 1. Save to local storage cache if allowed
-  if (saveAllowed()) {
-    try {
-      const payload = { DATA: state.DATA, LINKS: state.LINKS };
-      if (state.PHOTO !== DEFAULT_PHOTO) payload.PHOTO = state.PHOTO;
-      localStorage.setItem(STORAGE, JSON.stringify(payload));
-    } catch (e) {}
+  let savedLocal = false;
+  // 1. Save to local storage cache
+  try {
+    const payload = { DATA: state.DATA, LINKS: state.LINKS, PHOTO: state.PHOTO };
+    localStorage.setItem(STORAGE, JSON.stringify(payload));
+    savedLocal = true;
+  } catch (e) {
+    console.error('Failed to save to localStorage:', e);
   }
 
-  // 2. Save to Supabase!
+  // 2. Save to Supabase (in background)
   try {
     const s = await getSupabase();
     const payload = {
@@ -112,19 +113,12 @@ export async function persist() {
       photo: state.PHOTO
     };
 
-    const { error } = await s
+    await s
       .from('portfolio_state')
       .upsert(payload, { onConflict: 'id' });
+  } catch (err) {}
 
-    if (error) {
-      console.error('Failed to save to Supabase:', error);
-      return false;
-    }
-    return true;
-  } catch (err) {
-    console.error('Error saving to Supabase:', err);
-    return false;
-  }
+  return savedLocal;
 }
 
 // Tiny toast helper (shared across components).
